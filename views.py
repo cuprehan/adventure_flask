@@ -14,10 +14,11 @@ def hello(world: dict) -> str:
     :param world: The current world
     :return: The HTML to show the player
     """
-    return GAME_HEADER+"""You are in the Lair of the Corgis.<br>
+    return GAME_HEADER+"""You are in the Lair of Monsters.<br>
     
-    <a href="goto/lair">Go further into the lair.</a><br>
-    <a href="goto/entrance">Retreat.</a>"""
+    <a href="goto/lairOne">Go further into the lair.</a><br>
+    <a href="goto/lairTwo">Proceed past lair one.</a><br>
+    <a href="goto/lairThree">Go to the end of the lair.</a>"""
 
 
 ENCOUNTER_MONSTER = """
