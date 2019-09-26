@@ -16,9 +16,9 @@ def hello(world: dict) -> str:
     """
     return GAME_HEADER+"""You are in the Lair of Monsters.<br>
     
-    <a href="goto/lairOne">Go further into the lair.</a><br>
-    <a href="goto/lairTwo">Proceed past lair one.</a><br>
-    <a href="goto/lairThree">Go to the end of the lair.</a>"""
+    <a href="goto/lair one">Go further into the lair.</a><br>
+    <a href="goto/lair two">Proceed past lair one.</a><br>
+    <a href="goto/lair three">Go to the end of the lair.</a>"""
 
 
 ENCOUNTER_MONSTER = """
