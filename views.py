@@ -1,7 +1,7 @@
 from route_helper import simple_route
 
 GAME_HEADER = """
-<h1>Welcome to adventure quest!</h1>
+<h1>Welcome to monster hunter!</h1>
 <p>At any time you can <a href='/reset/'>reset</a> your game.</p>
 """
 
@@ -65,5 +65,5 @@ def save_name(world: dict, monsters_name: str) -> str:
 
     return GAME_HEADER+"""You are in {where}, and you are nearby {monster_name}
     <br><br>
-    <a href='/'>Return to the start</a>
+    <a href='/'>Proceed further into the lair</a>
     """.format(where=world['location'], monster_name=world['name'])
