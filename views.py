@@ -14,11 +14,23 @@ def hello(world: dict) -> str:
     :param world: The current world
     :return: The HTML to show the player
     """
-    return GAME_HEADER+"""You are in the Lair of Monsters.<br>
+    return GAME_HEADER + """You are in the Lair of Monsters.<br>
     
-    <a href="goto/lair one">Go further into the lair.</a><br>
-    <a href="goto/lair two">Proceed past lair one.</a><br>
-    <a href="goto/lair three">Go to the end of the lair.</a>"""
+    <a href="goto/lair one">Go further into the lair.</a>"""
+
+
+@simple_route('/lair_one')
+def start(world: dict, where: str) -> str:
+    """<a href="goto/lair_two">Proceed past lair one.</a>"""
+    world['location'] = where
+    return GAME_HEADER + "You are in lair 2.</br>"
+
+
+@simple_route('/lair_two')
+def middle(world: dict, where: str) -> str:
+    """<a href="goto/lair_three">Go to the end of the lair.</a>"""
+    world['location'] = where
+    return GAME_HEADER + "You are in lair 3.</a>"
 
 
 ENCOUNTER_MONSTER = """
@@ -49,7 +61,7 @@ def open_door(world: dict, where: str) -> str:
     :return: The HTML to show the player
     """
     world['location'] = where
-    return GAME_HEADER+ENCOUNTER_MONSTER.format(where)
+    return GAME_HEADER + ENCOUNTER_MONSTER.format(where)
 
 
 @simple_route("/save/name/")
@@ -63,7 +75,7 @@ def save_name(world: dict, monsters_name: str) -> str:
     """
     world['name'] = monsters_name
 
-    return GAME_HEADER+"""You are in {where}, and you are nearby {monster_name}
+    return GAME_HEADER + """You are in {where}, and you are nearby {monster_name}
     <br><br>
     <a href='/'>Proceed further into the lair</a>
     """.format(where=world['location'], monster_name=world['name'])
