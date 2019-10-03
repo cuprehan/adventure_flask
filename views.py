@@ -21,14 +21,16 @@ def hello(world: dict) -> str:
 
 @simple_route('/lair_one')
 def start(world: dict, where: str) -> str:
-    """<a href="goto/lair_two">Proceed past lair one.</a>"""
+    """
+    <a href="goto/lair two">Proceed past lair one.</a>"""
     world['location'] = where
     return GAME_HEADER + "You are in lair 2.</br>"
 
 
 @simple_route('/lair_two')
 def middle(world: dict, where: str) -> str:
-    """<a href="goto/lair_three">Go to the end of the lair.</a>"""
+    """
+    <a href="goto/lair three">Go to the end of the lair.</a>"""
     world['location'] = where
     return GAME_HEADER + "You are in lair 3.</a>"
 
